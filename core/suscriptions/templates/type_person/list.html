@@ -1,0 +1,30 @@
+{% extends "list.html" %}
+
+
+{% block columns %}
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Tipo Persona</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Opciones</th>
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for tp in object_list %}
+        <tr>
+            <td>{{ tp.id }}</td>
+            <td>{{ tp.name }}</td>
+            <td>{{ tp.description }}</td>
+            <td>
+                <button type="button" class="btn btn-warning btn-xs btn-flat">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button type="button" class="btn btn-danger btn-xs btn-flat">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+

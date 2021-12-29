@@ -1,0 +1,1 @@
+ip_db = '127.0.0.1' #En centos no funciona localhost, poner la ip directamente
