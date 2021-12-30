@@ -5,7 +5,7 @@ from django.forms import model_to_dict
 
 
 class TypePerson(models.Model):
-    name = models.CharField(max_length=50, unique=True, verbose_name="tipo persona")
+    name = models.CharField(max_length=50, unique=True, verbose_name="nombre")
     description= models.CharField(max_length=300, null=True, blank=True, verbose_name="descripción", default="")
 
     def toJSON(self):
@@ -13,6 +13,11 @@ class TypePerson(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.description}"
+
+    class Meta:
+        verbose_name = 'Tipo Persona'
+        verbose_name_plural = 'Tipos Personas'
+        ordering = ['id']
 
 
 class TypeSuscription(models.Model):

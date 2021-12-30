@@ -15,7 +15,7 @@ $(function () {
         $.ajax({
             url: urlTypePeopleList,
             type: 'POST',
-            data: {id: 15},
+            data: {id: 1},
             dataType: 'json'
         }).done((data) => {
             console.table(data)

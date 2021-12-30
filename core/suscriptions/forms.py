@@ -14,9 +14,9 @@ class TypePersonForm(ModelForm):
         model = TypePerson
         fields = '__all__'
         #Personalizo mi atributo name, aunque eso ya hace en models verbose_name
-        labels = {
-            'name': 'Tipo Persona'
-        }
+        # labels = {
+        #     'name': 'Nombre'
+        # }
 
         widgets = {
             'name': TextInput(
