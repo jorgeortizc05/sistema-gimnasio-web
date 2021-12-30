@@ -1,0 +1,75 @@
+{% extends "body.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <form method="post">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-plus"></i>
+                    {{ title }}</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                {% csrf_token %}
+
+{#                {% if form.errors %}#}
+{#                    <div class="alert alert-danger" role="alert">#}
+{#                        <h5>Ha ocurrido un error</h5>#}
+{#                        <ul>#}
+{#                            {% for field in form %}#}
+{#                                {% for error in field.errors %}#}
+{#                                    <li>{{ error }}</li>#}
+{#                                {% endfor %}#}
+{#                            {% endfor %}#}
+{#                        </ul>#}
+                        {#                        {{ form.errors }}#}
+{#                    </div>#}
+{#                {% endif %}#}
+                {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label>{{ field.label }}</label>
+                        {{ field|add_class:'form-control'|attr:"autocomplete:off" }}
+                    </div>
+                {% endfor %}
+                {% comment %}{{ form.as_p }}{% endcomment %}
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <button class="btn btn-primary btn-flat btnTest" type="submit">
+                    <i class="fas fa-plus"> Nuevo Registro</i>
+                </button>
+            </div>
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card-->
+    </form>
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        {% if form.errors %}
+            var errors = "";
+            {% for field in form %}
+                {% for error in field.errors %}
+                    errors += "{{ error }}\n" //es importante las comillas
+                {% endfor %}
+            {% endfor %}
+            Swal.fire({
+                title: "Error",
+                text: errors,
+                icon: 'error'
+            })
+        {% endif %}
+    </script>
+
+{% endblock %}

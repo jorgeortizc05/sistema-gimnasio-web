@@ -15,8 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from config import db
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Libs
     'widget_tweaks',
+    # Apps
     'core.suscriptions'
 ]
 
@@ -58,8 +60,8 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        # 'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -21,13 +21,21 @@ from django.forms import model_to_dict
 
 
 class TypeSuscription(models.Model):
-    name = models.CharField(max_length=50, unique=True, verbose_name="tipo suscripción")
+    name = models.CharField(max_length=50, unique=True, verbose_name="nombre")
     num_days = models.IntegerField(verbose_name="no. días")
     price = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="precio")
     description = models.CharField(max_length=300, null=True, blank=True, verbose_name="descripción")
 
     def __str__(self):
         return f"{self.name} {self.num_days} {self.price}"
+
+    def toJSON(self):
+        return model_to_dict(self)
+
+    class Meta:
+        verbose_name = 'Tipo Suscripción'
+        verbose_name_plural = 'Tipo Suscripciones'
+        ordering = ['id']
 
 class Person(models.Model):
     first_name = models.CharField(max_length=70, verbose_name="nombres")
@@ -39,11 +47,14 @@ class Person(models.Model):
     phone = models.CharField(max_length=14, null=True, blank=True, verbose_name="teléfono")
     discharge_date = models.DateTimeField(auto_now=True)
     modify_date = models.DateTimeField(auto_now_add=True)
-    # suscription = models.ForeignKey(TypePerson, on_delete=models.CASCADE)
+    # type_suscription = models.ForeignKey(TypePerson, on_delete=models.CASCADE)
 
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} {self.dni}"
+
+    def toJSON(self):
+        return model_to_dict(self)
 
 class Client(Person):
     active = models.BooleanField(default=True, verbose_name="activo");
@@ -51,11 +62,17 @@ class Client(Person):
     def __str__(self):
         return f"{self.first_name} {self.last_name} {self.dni}"
 
+    def toJSON(self):
+        return model_to_dict(self)
+
 class Coach(Person):
     agreement_date = models.DateTimeField()
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} {self.dni}"
+
+    def toJSON(self):
+        return model_to_dict(self)
 
 class Suscription(models.Model):
     receipt_number = models.CharField(max_length=70, unique=True, verbose_name="no. recibo")
@@ -68,3 +85,6 @@ class Suscription(models.Model):
     comment = models.CharField(max_length=300, null=True, blank=True, verbose_name="comentario")
     cliente = models.ForeignKey(Client, on_delete=models.CASCADE)
     type_suscription = models.ForeignKey(TypeSuscription, on_delete=models.CASCADE)
+
+    def toJSON(self):
+        return model_to_dict(self)

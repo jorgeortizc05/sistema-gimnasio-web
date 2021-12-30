@@ -27,6 +27,22 @@ class TypeSuscriptionForm(ModelForm):
                 }
 
             ),
+            'num_days': TextInput(
+                attrs={
+                    # 'class': 'form-control',
+                    'placeholder': 'Ingrese la cantidad de días',
+                    # 'autocomplete': 'off'
+                }
+
+            ),
+            'price': TextInput(
+                attrs={
+                    # 'class': 'form-control',
+                    'placeholder': 'Ingrese el precio',
+                    # 'autocomplete': 'off'
+                }
+
+            ),
             'description': Textarea(
                 attrs={
                     # 'class': 'form-control',
@@ -34,7 +50,7 @@ class TypeSuscriptionForm(ModelForm):
                     # 'autocomplete': 'off',
                     'cols': 3,
                     'rows': 3
-                }
+            }
         )
 
         }

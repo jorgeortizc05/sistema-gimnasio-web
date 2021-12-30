@@ -14,7 +14,7 @@ class TypeSuscriptionCreateView(CreateView):
     model = TypeSuscription
     form_class = TypeSuscriptionForm
     template_name = "type_suscription/create.html"
-    success_url = reverse_lazy('type_people_list')
+    success_url = reverse_lazy('suscriptions:type_suscription_list')
 
     # Agrego mas variables
     def get_context_data(self, **kwargs):
@@ -47,6 +47,7 @@ class TypeSuscriptionListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Lista Tipo Suscripciones'
+        context['create_url'] = reverse_lazy('suscriptions:type_suscription_create')
         return context
 
 # #Vistas basada en funciones, no es recomendable

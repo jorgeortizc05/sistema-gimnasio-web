@@ -38,9 +38,9 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            <button class="btn btn-primary btn-flat btnTest">
+            <a class="btn btn-primary btn-flat" href="{{ create_url }}">
                 <i class="fas fa-plus"> Nuevo Registro</i>
-            </button>
+            </a>
         </div>
         <!-- /.card-footer-->
     </div>
@@ -64,7 +64,7 @@
 
 
     <script type="application/javascript">
-        var urlTypePeopleList = '{% url 'type_suscription_list' %}'
+        var urlTypePeopleList = '{% url 'suscriptions:type_suscription_list' %}'
         console.log(urlTypePeopleList)
     </script>
     <script src="{% static 'js/list.js' %}"></script>
