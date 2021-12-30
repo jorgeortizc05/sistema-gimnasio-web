@@ -4,20 +4,20 @@ from django.db import models
 from django.forms import model_to_dict
 
 
-class TypePerson(models.Model):
-    name = models.CharField(max_length=50, unique=True, verbose_name="nombre")
-    description= models.CharField(max_length=300, null=True, blank=True, verbose_name="descripción", default="")
-
-    def toJSON(self):
-        return model_to_dict(self)
-
-    def __str__(self):
-        return f"{self.name} {self.description}"
-
-    class Meta:
-        verbose_name = 'Tipo Persona'
-        verbose_name_plural = 'Tipos Personas'
-        ordering = ['id']
+# class TypePerson(models.Model):
+#     name = models.CharField(max_length=50, unique=True, verbose_name="nombre")
+#     description= models.CharField(max_length=300, null=True, blank=True, verbose_name="descripción", default="")
+#
+#     def toJSON(self):
+#         return model_to_dict(self)
+#
+#     def __str__(self):
+#         return f"{self.name} {self.description}"
+#
+#     class Meta:
+#         verbose_name = 'Tipo Persona'
+#         verbose_name_plural = 'Tipos Personas'
+#         ordering = ['id']
 
 
 class TypeSuscription(models.Model):
@@ -37,8 +37,22 @@ class Person(models.Model):
     email = models.CharField(max_length=150, null=True, blank=True, verbose_name="correo electrónico")
     birthday = models.DateTimeField(null=True, blank=True, verbose_name="fecha nacimiento")
     phone = models.CharField(max_length=14, null=True, blank=True, verbose_name="teléfono")
+    discharge_date = models.DateTimeField(auto_now=True)
+    modify_date = models.DateTimeField(auto_now_add=True)
+    # suscription = models.ForeignKey(TypePerson, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} {self.dni}"
+
+class Client(Person):
     active = models.BooleanField(default=True, verbose_name="activo");
-    type_person = models.ForeignKey(TypePerson, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} {self.dni}"
+
+class Coach(Person):
+    agreement_date = models.DateTimeField()
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} {self.dni}"
@@ -52,5 +66,5 @@ class Suscription(models.Model):
     discount = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="descuento")
     total = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="total")
     comment = models.CharField(max_length=300, null=True, blank=True, verbose_name="comentario")
-    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Client, on_delete=models.CASCADE)
     type_suscription = models.ForeignKey(TypeSuscription, on_delete=models.CASCADE)

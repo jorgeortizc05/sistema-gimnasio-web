@@ -648,7 +648,7 @@
     return node
   }
 
-  // Feature-detect IE's crummy client rect reporting for bidi text
+  // Feature-detect IE's crummy type_suscription rect reporting for bidi text
   var badBidiRects;
   function hasBadBidiRects(measure) {
     if (badBidiRects != null) { return badBidiRects }
@@ -2526,7 +2526,7 @@
     return result
   }
 
-  // Work around problem with bounding client rects on ranges being
+  // Work around problem with bounding type_suscription rects on ranges being
   // returned incorrectly when zoomed on IE10 and below.
   function maybeUpdateRectForZooming(measure, rect) {
     if (!window.screen || screen.logicalXDPI == null ||
@@ -2563,7 +2563,7 @@
 
   function pageScrollX() {
     // Work around https://bugs.chromium.org/p/chromium/issues/detail?id=489206
-    // which causes page_Offset and bounding client rects to use
+    // which causes page_Offset and bounding type_suscription rects to use
     // different reference viewports and invalidate our calculations.
     if (chrome && android) { return -(document.body.getBoundingClientRect().left - parseInt(getComputedStyle(document.body).marginLeft)) }
     return window.pageXOffset || (document.documentElement || document.body).scrollLeft

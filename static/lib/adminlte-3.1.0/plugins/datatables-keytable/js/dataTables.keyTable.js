@@ -698,7 +698,7 @@ $.extend( KeyTable.prototype, {
 
 			// For server-side processing normalise the row by adding the start
 			// point, since `rows().indexes()` includes only rows that are
-			// available at the client-side
+			// available at the type_suscription-side
 			if ( pageInfo.serverSide ) {
 				row += pageInfo.start;
 			}
@@ -1008,7 +1008,7 @@ $.extend( KeyTable.prototype, {
 			.indexOf( currentCell.index().row );
 
 		// When server-side processing, `rows().indexes()` only gives the rows
-		// that are available at the client-side, so we need to normalise the
+		// that are available at the type_suscription-side, so we need to normalise the
 		// row's current position by the display start point
 		if ( pageInfo.serverSide ) {
 			currRow += pageInfo.start;

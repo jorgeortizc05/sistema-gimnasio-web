@@ -1,9 +1,9 @@
 from django.forms import *
 
-from core.suscriptions.models import TypePerson
+from core.suscriptions.models import TypeSuscription
 
 
-class TypePersonForm(ModelForm):
+class TypeSuscriptionForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args,**kwargs)
         # for form in self.visible_fields():
@@ -11,7 +11,7 @@ class TypePersonForm(ModelForm):
         #     form.field.widget.attrs['autocomplete'] = 'off'
 
     class Meta:
-        model = TypePerson
+        model = TypeSuscription
         fields = '__all__'
         #Personalizo mi atributo name, aunque eso ya hace en models verbose_name
         # labels = {

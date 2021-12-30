@@ -12,7 +12,7 @@ API.txt for details.
 
     var options = {
         xaxis: {
-            timezone: null, // "browser" for local to the client or timezone for timezone-js
+            timezone: null, // "browser" for local to the type_suscription or timezone for timezone-js
             timeformat: null, // format string to use
             twelveHourClock: false, // 12 or 24 time in time mode
             monthNames: null, // list of names of months
@@ -164,7 +164,7 @@ API.txt for details.
     }
 
     // To have a consistent view of time-based data independent of which time
-    // zone the client happens to be in we need a date-like object independent
+    // zone the type_suscription happens to be in we need a date-like object independent
     // of time zones.  This is done through a wrapper that only calls the UTC
     // versions of the accessor methods.
 

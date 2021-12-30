@@ -2296,7 +2296,7 @@
                         _this._prepViewTotal();
                     }
                     // If there is a filter to be applied, then we need to read from the start of the result set
-                    //  and set the paging to 0. This matches the behaviour of client side processing
+                    //  and set the paging to 0. This matches the behaviour of type_suscription side processing
                     if (filterCount > 0) {
                         // If the number of filters has changed we need to read from the start of the result set and reset the paging
                         if (filterCount !== _this.s.filterCount) {

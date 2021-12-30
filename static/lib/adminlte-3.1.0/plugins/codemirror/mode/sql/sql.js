@@ -263,7 +263,7 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
     return null;
   };
 
-  // short client keyword token
+  // short type_suscription keyword token
   function hookClient(stream) {
     // \N means NULL
     // ref: http://dev.mysql.com/doc/refman/5.5/en/null-values.html
@@ -348,7 +348,7 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
   // provided by the phpLiteAdmin project - phpliteadmin.org
   CodeMirror.defineMIME("text/x-sqlite", {
     name: "sql",
-    // commands of the official SQLite client, ref: https://www.sqlite.org/cli.html#dotcmd
+    // commands of the official SQLite type_suscription, ref: https://www.sqlite.org/cli.html#dotcmd
     client: set("auth backup bail binary changes check clone databases dbinfo dump echo eqp exit explain fullschema headers help import imposter indexes iotrace limit lint load log mode nullvalue once open output print prompt quit read restore save scanstats schema separator session shell show stats system tables testcase timeout timer trace vfsinfo vfslist vfsname width"),
     // ref: http://sqlite.org/lang_keywords.html
     keywords: set(sqlKeywords + "abort action add after all analyze attach autoincrement before begin cascade case cast check collate column commit conflict constraint cross current_date current_time current_timestamp database default deferrable deferred detach each else end escape except exclusive exists explain fail for foreign full glob if ignore immediate index indexed initially inner instead intersect isnull key left limit match natural no notnull null of offset outer plan pragma primary query raise recursive references regexp reindex release rename replace restrict right rollback row savepoint temp temporary then to transaction trigger unique using vacuum view virtual when with without"),
@@ -483,8 +483,8 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
     A list of builtin types you want to be highlighted (if you want types to be of class "builtin" instead of "keyword").
   operatorChars:
     All characters that must be handled as operators.
-  client:
-    Commands parsed and executed by the client (not the server).
+  type_suscription:
+    Commands parsed and executed by the type_suscription (not the server).
   support:
     A list of supported syntaxes which are not common, but are supported by more than 1 DBMS.
     * ODBCdotTable: .tableName

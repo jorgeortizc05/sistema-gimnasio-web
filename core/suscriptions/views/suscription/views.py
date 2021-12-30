@@ -5,26 +5,26 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, CreateView
 
-from core.suscriptions.forms import TypePersonForm
-from core.suscriptions.models import TypePerson
+from core.suscriptions.forms import TypeSuscriptionForm
+from core.suscriptions.models import TypeSuscription
 
 
 # Create your views here.
-class TypePersonCreateView(CreateView):
-    model = TypePerson
-    form_class = TypePersonForm
-    template_name = "type_person/create.html"
+class TypeSuscriptionCreateView(CreateView):
+    model = TypeSuscription
+    form_class = TypeSuscriptionForm
+    template_name = "type_suscription/create.html"
     success_url = reverse_lazy('type_people_list')
 
     # Agrego mas variables
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Nuevo tipo de persona'
+        context['title'] = 'Nuevo Tipo Suscripción'
         return context
 
-class TypePersonListView(ListView):
-    model = TypePerson
-    template_name = "type_person/list.html"
+class TypeSuscriptionListView(ListView):
+    model = TypeSuscription
+    template_name = "type_suscription/list.html"
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
@@ -37,7 +37,7 @@ class TypePersonListView(ListView):
     def post(self, request, *args, **kwargs):
         data = {}
         try:
-            data = TypePerson.objects.get(pk=request.POST['id']).toJSON()
+            data = TypeSuscription.objects.get(pk=request.POST['id']).toJSON()
         except Exception as e:
             data['error'] = str(e)
 
@@ -46,7 +46,7 @@ class TypePersonListView(ListView):
     # Agrego mas variables
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Lista Tipo Personas'
+        context['title'] = 'Lista Tipo Suscripciones'
         return context
 
 # #Vistas basada en funciones, no es recomendable
@@ -55,4 +55,4 @@ class TypePersonListView(ListView):
 #         'title': "Lista Tipo Personas",
 #         'type_people': TypePerson.objects.all()
 #     }
-#     return render(request, "type_person/list.html", data)
+#     return render(request, "type_suscription/list.html", data)

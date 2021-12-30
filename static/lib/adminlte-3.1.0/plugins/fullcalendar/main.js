@@ -9556,7 +9556,7 @@ var FullCalendar = (function (exports) {
 
     /*
     Is a cache for a given element's scroll information (all the info that ScrollController stores)
-    in addition the "client rectangle" of the element.. the area within the scrollbars.
+    in addition the "type_suscription rectangle" of the element.. the area within the scrollbars.
 
     The cache can be in one of two modes:
     - doesListening:false - ignores when the container is scrolled by someone else
