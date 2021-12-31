@@ -5,6 +5,8 @@
     <tr>
         <th scope="col">id</th>
         <th scope="col">Tipo Persona</th>
+        <th scope="col">No. Días</th>
+        <th scope="col">Precio</th>
         <th scope="col">Descripción</th>
         <th scope="col">Opciones</th>
     </tr>
@@ -15,14 +17,16 @@
         <tr>
             <td>{{ tp.id }}</td>
             <td>{{ tp.name }}</td>
+            <td>{{ tp.num_days }}</td>
+            <td>{{ tp.price }}</td>
             <td>{{ tp.description }}</td>
             <td>
-                <button type="button" class="btn btn-warning btn-xs btn-flat">
+                <a href="{% url 'suscriptions:type_suscription_update' tp.id %}" type="button" class="btn btn-warning btn-xs btn-flat">
                     <i class="fas fa-edit"></i>
-                </button>
-                <button type="button" class="btn btn-danger btn-xs btn-flat">
+                </a>
+                <a href="{% url 'suscriptions:type_suscripcion_delete' tp.id %}" type="button" class="btn btn-danger btn-xs btn-flat">
                     <i class="fas fa-trash-alt"></i>
-                </button>
+                </a>
             </td>
         </tr>
     {% endfor %}

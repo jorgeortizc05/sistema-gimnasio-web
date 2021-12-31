@@ -13,7 +13,7 @@
 {% block content %}
     <div class="card card-default">
         <div class="card-header">
-            <h3 class="card-title">{{ title }}</h3>
+            <h3 class="card-title"><b>{{ title }}</b></h3>
 
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -39,7 +39,8 @@
         <!-- /.card-body -->
         <div class="card-footer">
             <a class="btn btn-primary btn-flat" href="{{ create_url }}">
-                <i class="fas fa-plus"> Nuevo Registro</i>
+                <i class="fas fa-plus"> </i>
+                Nuevo Registro
             </a>
         </div>
         <!-- /.card-footer-->
@@ -63,9 +64,9 @@
     <script src="{% static 'lib/adminlte-3.1.0/plugins/datatables-buttons/js/buttons.bootstrap4.js' %}"></script>
 
 
-    <script type="application/javascript">
+    {% comment %}<script type="application/javascript">
         var urlTypePeopleList = '{% url 'suscriptions:type_suscription_list' %}'
         console.log(urlTypePeopleList)
-    </script>
+    </script>{% endcomment %}
     <script src="{% static 'js/list.js' %}"></script>
 {% endblock %}

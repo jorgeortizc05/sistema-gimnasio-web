@@ -27,7 +27,7 @@ class TypeSuscription(models.Model):
     description = models.CharField(max_length=300, null=True, blank=True, verbose_name="descripción")
 
     def __str__(self):
-        return f"{self.name} {self.num_days} {self.price}"
+        return f"Tipo Suscripción = nombre: {self.name}, numero_días: {self.num_days}, precio: {self.price} "
 
     def toJSON(self):
         return model_to_dict(self)

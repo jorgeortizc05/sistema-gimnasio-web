@@ -11,19 +11,19 @@ $(function () {
             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
         }
     });
-    $('.btnTest').on('click', () => {
-        $.ajax({
-            url: urlTypePeopleList,
-            type: 'POST',
-            data: {id: 1},
-            dataType: 'json'
-        }).done((data) => {
-            console.table(data)
-        }).fail((jqXHR, textStatus, errorThrown) => {
-            console.log("No hay datos de ese tipo de persona");
-            console.log(textStatus + ": " + errorThrown);
-        }).always((data) => {
-
-        });
-    });
+    // $('.btnTest').on('click', () => {
+    //     $.ajax({
+    //         url: urlTypePeopleList,
+    //         type: 'POST',
+    //         data: {id: 1},
+    //         dataType: 'json'
+    //     }).done((data) => {
+    //         console.table(data)
+    //     }).fail((jqXHR, textStatus, errorThrown) => {
+    //         console.log("No hay datos de ese tipo de persona");
+    //         console.log(textStatus + ": " + errorThrown);
+    //     }).always((data) => {
+    //
+    //     });
+    // });
 });
