@@ -1,0 +1,42 @@
+{% extends "list.html" %}
+
+
+{% block columns %}
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Correo Electrónico</th>
+        <th scope="col">Fecha nacimiento</th>
+        <th scope="col">Teléfono</th>
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for o in object_list %}
+        <tr>
+            <td>{{ o.id }}</td>
+            <td>{{ o.first_name }}</td>
+            <td>{{ o.last_name }}</td>
+            <td>{{ o.dni }}</td>
+            <td>{{ o.address }}</td>
+            <td>{{ o.email }}</td>
+            <td>{{ o.birthday }}</td>
+            <td>{{ o.phone }}</td>
+
+            <td>
+                <a href="{% url 'suscriptions:client_update' o.id %}" type="button"
+                   class="btn btn-warning btn-xs btn-flat">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="{% url 'suscriptions:client_delete' o.id %}" type="button"
+                   class="btn btn-danger btn-xs btn-flat">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+
