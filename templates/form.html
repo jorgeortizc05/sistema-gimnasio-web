@@ -43,7 +43,7 @@
                 {% for field in form.visible_fields %}
                     <div class="form-group">
                         <label>{{ field.label }}</label>
-                        {{ field|add_class:'form-control'|attr:"autocomplete:off" }}
+                        {{ field|add_class:'form-control' }}
                     </div>
                 {% endfor %}
                 {% comment %}{{ form.as_p }}{% endcomment %}
@@ -66,7 +66,7 @@
 {% block javascript %}
     <script src="{% static 'js/functions.js' %}"></script>
     <script>
-        {% if form.errors %}
+        {% comment %}{% if form.errors %}
             var errors = "";
             {% for field in form %}
                 {% for error in field.errors %}
@@ -78,9 +78,9 @@
                 text: errors,
                 icon: 'error'
             })
-        {% endif %}
+        {% endif %}{% endcomment %}
 
-        $('form').on('submit', (e) => {
+        $('#formulario').on('submit', (e) => {
             e.preventDefault(); //no se hace envio, sino una pausa
             var parameters = $('form').serializeArray();
             //console.log(parameters);
@@ -101,6 +101,17 @@
                 console.log(textStatus + ": " + errorThrown);
             }).always((data) => {
 
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#id_birthday').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                locale: {
+                  format: 'DD/MM/YYYY'
+                }
             });
         });
     </script>

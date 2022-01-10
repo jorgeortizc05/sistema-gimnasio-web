@@ -40,7 +40,7 @@ class TypeSuscription(models.Model):
 class Person(models.Model):
     first_name = models.CharField(max_length=70, verbose_name="nombres")
     last_name = models.CharField(max_length=70, verbose_name= "apellidos")
-    dni = models.CharField(max_length=10, verbose_name="cedula identidad")
+    dni = models.CharField(max_length=10, unique=True, verbose_name="cedula identidad")
     address = models.CharField(max_length=300, null=True, blank=True, verbose_name="dirección")
     email = models.CharField(max_length=150, null=True, blank=True, verbose_name="correo electrónico")
     birthday = models.DateTimeField(null=True, blank=True, verbose_name="fecha nacimiento")

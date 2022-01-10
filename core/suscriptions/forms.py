@@ -34,7 +34,7 @@ class TypeSuscriptionForm(ModelForm):
             'name': TextInput(
                 attrs={
                     # 'class': 'form-control',
-                    'placeholder': 'Ingrese el tipo de persona',
+                    'placeholder': 'Ingrese el tipo de suscripción',
                     # 'autocomplete': 'off'
                 }
 
@@ -94,39 +94,20 @@ class ClientForm(ModelForm):
     #     #     'name': 'Nombre'
     #     # }
     #
-    #     widgets = {
-    #         'name': TextInput(
-    #             attrs={
-    #                 # 'class': 'form-control',
-    #                 'placeholder': 'Ingrese el tipo de persona',
-    #                 # 'autocomplete': 'off'
-    #             }
-    #
-    #         ),
-    #         'num_days': TextInput(
-    #             attrs={
-    #                 # 'class': 'form-control',
-    #                 'placeholder': 'Ingrese la cantidad de días',
-    #                 # 'autocomplete': 'off'
-    #             }
-    #
-    #         ),
-    #         'price': TextInput(
-    #             attrs={
-    #                 # 'class': 'form-control',
-    #                 'placeholder': 'Ingrese el precio',
-    #                 # 'autocomplete': 'off'
-    #             }
-    #
-    #         ),
-    #         'description': Textarea(
-    #             attrs={
-    #                 # 'class': 'form-control',
-    #                 'placeholder': 'Ingrese la descripción',
-    #                 # 'autocomplete': 'off',
-    #                 'cols': 3,
-    #                 'rows': 3
-    #             }
-    #         )
-    #
-    #     }
+        # widgets = {
+        #     'birthday': DateInput(
+        #         format=('%d-%m-%Y'),
+        #         attrs={
+        #
+        #         }
+        #
+        #     ),
+        #     'phone': TextInput(
+        #         attrs={
+        #             'data-inputmask': "'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']",
+        #             'data-mask': "",
+        #             'inputmode': "text"
+        #         }
+        #     )
+        #
+        # }
